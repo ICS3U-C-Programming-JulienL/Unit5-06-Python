@@ -21,25 +21,27 @@ def main():
     dec_num = []
 
     # get decimal number
-    dec_num_value = input("Enter your decimal number:")
+    dec_num_value_str = input("Enter your decimal number:")
 
     # append the value to the dec_num list
-    dec_num.append(dec_num_value)
+    dec_num.append(dec_num_value_str)
 
     # get the desired number of places to be rounded to
-    num_places = input("How many decimal places do you want it rounded to:")
+    num_places_str = input(
+        "How many decimal places do you want your answer rounded to:"
+    )
 
     # if dec_num_value is a float then...
-    if dec_num_value.replace(".", "").isnumeric():
+    if dec_num_value_str.replace(".", "").isnumeric():
         # convert dec_num_value to a float
-        dec_num_value_float = float(dec_num_value)
+        dec_num_value_float = float(dec_num_value_str)
 
         # append dec_num_value as a float to dec_num list
         dec_num.append(dec_num_value_float)
 
         try:
             # convert num_places to an it
-            num_places_int = int(num_places)
+            num_places_int = int(num_places_str)
 
             # call the round decimal function
             round_decimal(dec_num, dec_num_value_float, num_places_int)
@@ -48,10 +50,10 @@ def main():
             print(dec_num[0])
         except:
             # if num_places cannot become an int, tell the user to enter one
-            print("{} is not a valid decimal number".format(num_places))
+            print("{} is not a valid integer.".format(num_places_str))
     else:
         # if dec_num cannot become a number, tell the user to enter one
-        print("{} is not a valid decimal number".format(dec_num_value))
+        print("{} is not a valid decimal number".format(dec_num_value_str))
 
 
 if __name__ == "__main__":
